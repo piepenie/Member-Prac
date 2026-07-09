@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Entity
@@ -17,5 +21,22 @@ public class Member {
     @Column(length = 50, nullable = false)
     private String name;
     @Column(unique = true, nullable = false)
+    private String email;
+    private String address;
+    @CreatedDate
+    @Column
+    private LocalDateTime createdAt;
+
+    public Member(String name, String email, String address) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+    }
+
+    public void update(String name, String email, String address) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+    }
 
 }
