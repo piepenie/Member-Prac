@@ -27,13 +27,13 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
-    @GetMapping("/mebers/{memberId}")
+    @GetMapping("/members/{memberId}")
     public ResponseEntity<GetMemberResponse> getOne(@PathVariable Long memberId){
         GetMemberResponse result = memberService.getOne(memberId);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
-    @PutMapping("/mebers/{memberId}")
+    @PutMapping("/members/{memberId}")
     public ResponseEntity<UpdateMemberResponse> update(
             @PathVariable Long memberId,
             @RequestBody UpdateMemberRequest request
@@ -42,7 +42,7 @@ public class MemberController {
             return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
-    @DeleteMapping("/mebers/{memberId}")
+    @DeleteMapping("/members/{memberId}")
     public ResponseEntity<Void> delete(@PathVariable Long memberId){
         memberService.delete(memberId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
